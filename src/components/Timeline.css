@@ -1,0 +1,119 @@
+.timeline__header {
+    text-align: center;
+    margin-bottom: 56px;
+}
+
+.timeline__header .section-subtitle {
+    margin: 0 auto;
+}
+
+.timeline__track {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline__line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom,
+            transparent,
+            var(--purple-600),
+            var(--blue-500),
+            var(--green-500),
+            transparent);
+    transform: translateX(-50%);
+}
+
+.timeline__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 48px;
+}
+
+.timeline__item--left {
+    flex-direction: row;
+    padding-right: calc(50% + 32px);
+    justify-content: flex-end;
+}
+
+.timeline__item--right {
+    flex-direction: row-reverse;
+    padding-left: calc(50% + 32px);
+    justify-content: flex-end;
+}
+
+.timeline__dot {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 48px;
+    height: 48px;
+    background: var(--bg-secondary);
+    border: 2px solid var(--purple-600);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    z-index: 2;
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+}
+
+.timeline__card {
+    padding: 28px 24px;
+    max-width: 320px;
+}
+
+.timeline__card:hover {
+    transform: none;
+}
+
+.timeline__step {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--purple-400);
+    font-weight: 600;
+}
+
+.timeline__card-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 6px 0 8px;
+}
+
+.timeline__card-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .timeline__line {
+        left: 24px;
+    }
+
+    .timeline__item--left,
+    .timeline__item--right {
+        flex-direction: row;
+        padding-right: 0;
+        padding-left: 72px;
+        justify-content: flex-start;
+    }
+
+    .timeline__dot {
+        left: 24px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+
+    .timeline__card {
+        max-width: 100%;
+    }
+}

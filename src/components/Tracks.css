@@ -1,0 +1,547 @@
+﻿.tracks__header {
+    text-align: center;
+    margin-bottom: 56px;
+}
+
+.tracks__header .section-subtitle {
+    margin: 0 auto;
+}
+
+.tracks__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    align-items: start;
+}
+
+/* Card */
+.tracks__card {
+    position: relative;
+    padding: 40px 32px;
+    cursor: pointer;
+    overflow: hidden;
+    /* Important for spotlight clip */
+    transition: transform 0.4s ease, border-color 0.4s ease;
+    background: rgba(255, 255, 255, 0.015);
+    /* Lower opacity for spotlight to show */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.tracks__card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(168, 85, 247, 0.4);
+}
+
+.tracks__card--blue:hover {
+    border-color: rgba(6, 182, 212, 0.4);
+}
+
+/* Spotlight Effect */
+.tracks__card-spotlight {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    transition: opacity 0.5s ease;
+}
+
+/* Glow Blobs */
+.tracks__card-glow {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    top: -80px;
+    right: -80px;
+    filter: blur(70px);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.tracks__card:hover .tracks__card-glow {
+    opacity: 0.2;
+}
+
+.tracks__card-glow--purple {
+    background: var(--primary-500);
+}
+
+.tracks__card-glow--blue {
+    background: var(--secondary-500);
+}
+
+/* Content Wrapper (z-index fix) */
+.tracks__card-icon-wrapper,
+.tracks__card-title,
+.tracks__card-subtitle,
+.tracks__card-desc,
+.tracks__card-divider,
+.tracks__card-highlights,
+.tracks__card-themes,
+.tracks__card-btn {
+    position: relative;
+    z-index: 1;
+}
+
+.tracks__card-icon-wrapper {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    border: 1px solid var(--glass-border);
+    font-size: 2.5rem;
+    margin-bottom: 24px;
+    color: white;
+}
+
+.tracks__card-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+}
+
+.tracks__card-subtitle {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    margin-bottom: 16px;
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    color: var(--primary-400);
+}
+
+.tracks__card--blue .tracks__card-subtitle {
+    color: var(--secondary-400);
+}
+
+.tracks__card-desc {
+    font-size: 1rem;
+    margin-bottom: 24px;
+    flex-grow: 1;
+    /* Push bottom elements down */
+}
+
+.tracks__card-divider {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    margin: 24px 0;
+}
+
+/* Highlights */
+.tracks__card-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+.tracks__card-highlight {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.highlight-icon {
+    color: var(--primary-400);
+}
+
+.tracks__card--blue .highlight-icon {
+    color: var(--secondary-400);
+}
+
+/* Button */
+/* Button Grid */
+.tracks__card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: auto;
+}
+
+.tracks__card-link {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-decoration: underline;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.tracks__card-link:hover {
+    opacity: 1;
+    color: white;
+}
+
+/* Desktop card actions */
+@media (min-width: 769px) {
+    .tracks__card-actions {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .tracks__card-btn {
+        flex: 1;
+    }
+}
+
+/* ============================================
+   TRACK DETAIL PAGE - Full Screen, Clean Layout
+   ============================================ */
+
+.track-page__overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: var(--bg-primary);
+    overflow-y: auto;
+}
+
+.track-page {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Top Bar */
+.track-page__topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 48px;
+    background: rgba(10, 10, 20, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.track-page__back {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 8px 0;
+    transition: color 0.2s;
+}
+
+.track-page__back:hover {
+    color: white;
+}
+
+.track-page__register {
+    padding: 10px 28px;
+    font-size: 0.9rem;
+}
+
+/* Content Container */
+.track-page__content {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 56px 32px 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+/* Header */
+.track-page__header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.track-page__icon {
+    font-size: 2.5rem;
+    color: var(--primary-400);
+    line-height: 1;
+}
+
+.track-page__title {
+    font-size: 2.6rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+}
+
+.track-page__subtitle {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.track-page__desc {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    max-width: 600px;
+}
+
+/* Details Grid */
+.track-page__details-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.track-page__detail {
+    flex: 1 1 180px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 16px 20px;
+    background: var(--bg-secondary);
+    border-right: 1px solid var(--glass-border);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.track-page__detail-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.track-page__detail-value {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: white;
+    line-height: 1.4;
+}
+
+/* Section */
+.track-page__section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.track-page__section-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.track-page__section-title svg {
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+/* Items */
+.track-page__items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.track-page__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px 20px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+}
+
+.track-page__item-icon {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.track-page__item strong {
+    display: block;
+    font-size: 0.92rem;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.track-page__item p {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.45;
+}
+
+/* Awards */
+.track-page__awards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.track-page__award {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: white;
+}
+
+.track-page__award-icon {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+}
+
+/* Template Download */
+.track-page__template-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.track-page__download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    width: fit-content;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.track-page__download-btn:hover {
+    border-color: var(--primary-400);
+    background: rgba(168, 85, 247, 0.08);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .tracks__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tracks__card {
+        padding: 28px 20px;
+    }
+
+    .tracks__card-title {
+        font-size: 1.4rem;
+    }
+
+    .tracks__card-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .tracks__card-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .tracks__card-link {
+        width: 100%;
+        text-align: center;
+    }
+
+    .track-page__topbar {
+        padding: 12px 16px;
+    }
+
+    .track-page__content {
+        padding: 28px 16px 64px;
+        gap: 32px;
+    }
+
+    .track-page__title {
+        font-size: 1.8rem;
+    }
+
+    .track-page__desc {
+        font-size: 0.95rem;
+    }
+
+    .track-page__details-grid {
+        flex-direction: column;
+    }
+
+    .track-page__detail {
+        flex: 1 1 100%;
+        border-right: none;
+    }
+
+    .track-page__section-title {
+        font-size: 1.05rem;
+    }
+
+    .track-page__items {
+        grid-template-columns: 1fr;
+    }
+
+    .track-page__awards {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .track-page__download-btn {
+        font-size: 0.85rem;
+        padding: 10px 20px;
+    }
+
+    .track-page__register {
+        padding: 8px 20px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .track-page__title {
+        font-size: 1.5rem;
+    }
+
+    .track-page__awards {
+        grid-template-columns: 1fr;
+    }
+
+    .track-page__topbar {
+        padding: 10px 12px;
+    }
+
+    .track-page__content {
+        padding: 24px 14px 48px;
+        gap: 28px;
+    }
+}

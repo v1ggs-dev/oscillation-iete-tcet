@@ -1,0 +1,347 @@
+/* Hero.css */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-top: 120px;
+    /* Space for navbar */
+    overflow: hidden;
+}
+
+/* Background Effects */
+.hero__grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.5;
+    mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+    -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero__bg-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+    z-index: 0;
+}
+
+.hero__bg-orb--1 {
+    width: 600px;
+    height: 600px;
+    background: var(--primary-600);
+    top: -20%;
+    left: -10%;
+    animation: pulse-glow 8s ease-in-out infinite alternate;
+}
+
+.hero__bg-orb--2 {
+    width: 500px;
+    height: 500px;
+    background: var(--secondary-500);
+    bottom: -10%;
+    right: -5%;
+    animation: pulse-glow 10s ease-in-out infinite alternate-reverse;
+}
+
+/* Layout */
+.hero__content {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Main Text Content */
+.hero__title {
+    margin-bottom: 24px;
+    line-height: 1;
+}
+
+.hero__title-row {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: nowrap;
+    gap: 20px;
+    white-space: nowrap;
+}
+
+.hero__title-line {
+    font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.1));
+}
+
+/* Gradient works on parent if text is NOT split into spans */
+.hero__title-line:not(:has(.split-char)) {
+    background: linear-gradient(to bottom, #fff, #94a3b8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* When split, apply gradient to each character span */
+.hero__title-line .split-char {
+    background: linear-gradient(to bottom, #fff, #94a3b8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero__title-sub {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+}
+
+.hero__title-version {
+    font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+    font-weight: 800;
+}
+
+.hero__year-wrapper {
+    margin-top: 12px;
+}
+
+.hero__year {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.2em;
+    border: 1px solid var(--glass-border);
+    padding: 6px 16px;
+    border-radius: 100px;
+    display: inline-block;
+}
+
+.hero__description {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    max-width: 500px;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.hero__typewriter {
+    color: var(--primary-400);
+    font-weight: 600;
+}
+
+.hero__typewriter-cursor {
+    display: inline-block;
+    color: var(--primary-400);
+    animation: blink-cursor 0.75s step-end infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink-cursor {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.hero__actions {
+    display: flex;
+    gap: 20px;
+}
+
+/* Visual Side (Countdown & Stats) */
+.hero__visual {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.hero__countdown {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.hero__countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.hero__countdown-box {
+    width: 100%;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(15, 23, 42, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.hero__countdown-value {
+    font-family: var(--font-primary);
+    /* Use main font */
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+}
+
+.hero__countdown-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.1em;
+}
+
+.hero__stat-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 24px;
+    width: 100%;
+}
+
+.hero__stat-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    font-size: 1.25rem;
+    color: var(--secondary-400);
+    flex-shrink: 0;
+}
+
+.hero__stat-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.hero__stat-text strong {
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+}
+
+.hero__stat-text span {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+
+
+/* Responsive */
+@media (max-width: 968px) {
+    .hero__content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+        padding-top: 40px;
+    }
+
+    .hero__main {
+        align-items: center;
+    }
+
+    .hero__title {
+        align-items: center;
+    }
+
+    .hero__title-row {
+        justify-content: center;
+    }
+
+    .hero__title-sub {
+        justify-content: center;
+    }
+
+    .hero__actions {
+        justify-content: center;
+    }
+
+    .hero__description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero__visual {
+        align-items: center;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero__title-row {
+        flex-wrap: wrap;
+        white-space: normal;
+        gap: 12px;
+    }
+
+    .hero__title-line,
+    .hero__title-version {
+        font-size: clamp(2rem, 10vw, 2.5rem);
+    }
+
+    .hero__actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 16px;
+    }
+
+    .hero__actions .btn-primary,
+    .hero__actions .btn-secondary {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero__countdown {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ── Split Text Characters ── */
+.split-char {
+    display: inline-block;
+}
+
+/* ── Flip Digit ── */
+.flip-digit {
+    display: inline-block;
+    perspective: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+.flip-digit__inner {
+    display: inline-block;
+    transform-origin: center;
+}
+
+/* ── Tilt Card Glare ── */
+.tilt-card__glare {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 2;
+}

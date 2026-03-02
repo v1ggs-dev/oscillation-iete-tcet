@@ -1,0 +1,4 @@
+﻿User-agent: *
+Allow: /
+
+Sitemap: https://oscillation-iete.netlify.app/sitemap.xml

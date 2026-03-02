@@ -1,0 +1,283 @@
+.prizes__header {
+    text-align: center;
+    margin-bottom: 56px;
+}
+
+/* Prize Pool Card */
+.prizes__pool {
+    position: relative;
+    text-align: center;
+    padding: 60px 40px;
+    margin-bottom: 48px;
+    overflow: hidden;
+}
+
+.prizes__pool-glow {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.15), transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.prizes__pool-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--purple-400);
+    font-weight: 600;
+}
+
+.prizes__pool-amount {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 4px;
+    margin: 16px 0 8px;
+}
+
+.prizes__pool-value {
+    font-family: var(--font-display);
+    font-size: 5rem;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.prizes__pool-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+/* Podium Places */
+.prizes__podium {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 48px;
+}
+
+.prizes__place {
+    padding: 36px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.prizes__place-icon {
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+.prizes__place--gold .prizes__place-icon {
+    color: #fbbf24;
+    filter: drop-shadow(0 0 12px rgba(251, 191, 36, 0.4));
+}
+
+.prizes__place--silver .prizes__place-icon {
+    color: #9ca3af;
+    filter: drop-shadow(0 0 12px rgba(156, 163, 175, 0.4));
+}
+
+.prizes__place--bronze .prizes__place-icon {
+    color: #d97706;
+    filter: drop-shadow(0 0 12px rgba(217, 119, 6, 0.4));
+}
+
+.prizes__place-rank {
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.prizes__place-label {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 8px 0;
+}
+
+.prizes__place-amount {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+/* Special Awards */
+.prizes__awards-header {
+    text-align: center;
+    margin-bottom: 32px;
+    margin-top: 16px;
+}
+
+.prizes__awards-track-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--secondary-400, #22d3ee);
+    background: rgba(6, 182, 212, 0.1);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    border-radius: var(--radius-full);
+    padding: 4px 16px;
+    margin-bottom: 16px;
+}
+
+.prizes__awards-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.prizes__awards-title-icon {
+    color: var(--purple-400);
+}
+
+.prizes__awards-desc {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.prizes__awards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 32px;
+}
+
+.prizes__award-card {
+    padding: 36px 24px;
+    text-align: center;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.prizes__award-card:hover {
+    border-bottom-color: var(--purple-400);
+}
+
+.prizes__award-icon {
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    color: var(--purple-400);
+    transition: color 0.3s ease, filter 0.3s ease;
+    filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.3));
+}
+
+.prizes__award-card:hover .prizes__award-icon {
+    color: var(--purple-300);
+    filter: drop-shadow(0 0 14px rgba(168, 85, 247, 0.6));
+}
+
+.prizes__award-name {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* Ideathon Prize */
+.prizes__ideathon {
+    padding: 28px 32px;
+    margin-bottom: 16px;
+}
+
+.prizes__ideathon:hover {
+    transform: none;
+}
+
+.prizes__ideathon-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.prizes__ideathon-icon {
+    font-size: 2.2rem;
+    flex-shrink: 0;
+    color: var(--purple-400);
+    display: flex;
+    align-items: center;
+}
+
+.prizes__ideathon-content h4 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.prizes__ideathon-content p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* Certificates for All */
+.prizes__certificates {
+    padding: 28px 32px;
+}
+
+.prizes__certificates:hover {
+    transform: none;
+}
+
+.prizes__certificates-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.prizes__certificates-icon {
+    font-size: 2.2rem;
+    flex-shrink: 0;
+    color: var(--secondary-400, #22d3ee);
+    display: flex;
+    align-items: center;
+}
+
+.prizes__certificates-content h4 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.prizes__certificates-content p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+    .prizes__pool-value {
+        font-size: 3.5rem;
+    }
+
+    .prizes__podium {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .prizes__awards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .prizes__awards-grid {
+        grid-template-columns: 1fr;
+    }
+}
