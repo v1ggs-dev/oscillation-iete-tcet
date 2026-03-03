@@ -46,7 +46,11 @@ export default function WhatsAppFAB() {
                         >
                             <button
                                 className="wa-popup__close"
-                                onClick={() => setIsOpen(false)}
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    setIsOpen(false);
+                                }}
+                                onPointerDown={(e) => e.stopPropagation()}
                                 aria-label="Close"
                             >
                                 <FaTimes />

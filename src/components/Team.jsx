@@ -87,8 +87,8 @@ const workingCommittee = [
     { name: 'Anshul Chaurasia', role: 'Creative Team', image: imgWcCreative2, linkedin: null },
     { name: 'Anwesha Singh', role: 'Creative Team', image: imgWcCreative3, linkedin: 'https://www.linkedin.com/in/student-anwesha-singh/' },
     { name: 'Falakkhatoon Shaikh', role: 'Creative Team', image: imgWcCreative4, linkedin: 'https://www.linkedin.com/in/falak-shaikh-0b632a372/' },
-    { name: 'Saanvi Tiwari', role: 'Creative Team', image: imgWcCreative5, linkedin: 'https://www.linkedin.com/in/saanvi-tiwari-5b1bb7375/' },
-    { name: 'Suhani Darokar', role: 'Creative Team', image: imgWcCreative6, linkedin: '#' },
+    { name: 'Saanvi Tiwari', role: 'Logistics Team', image: imgWcCreative5, linkedin: 'https://www.linkedin.com/in/saanvi-tiwari-5b1bb7375/' },
+    { name: 'Suhani Darokar', role: 'Logistics Team', image: imgWcCreative6, linkedin: '#' },
 ];
 
 const containerVariants = {
