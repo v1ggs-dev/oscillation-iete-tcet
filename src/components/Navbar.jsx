@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { HiMenuAlt4, HiX } from 'react-icons/hi';
 import { REGISTRATION_URL } from '../config/constants';
-import MagneticButton from './MagneticButton';
 import ieteLogo from '../assets/iete_logo.svg';
 import tcetLogo from '../assets/tcet_logo.svg';
 import './Navbar.css';
@@ -78,11 +77,9 @@ export default function Navbar() {
                             ))}
                         </ul>
                         <div className="navbar__right-actions">
-                            <MagneticButton>
-                                <button className="navbar__register-btn" onClick={() => window.open(REGISTRATION_URL, '_blank')}>
-                                    Register
-                                </button>
-                            </MagneticButton>
+                            <button className="navbar__register-btn" onClick={() => window.open(REGISTRATION_URL, '_blank')}>
+                                Register
+                            </button>
 
                             <div className="navbar__logo-icons navbar__logo-icons--right">
                                 <img src={tcetLogo} alt="TCET" className="navbar__org-logo" />

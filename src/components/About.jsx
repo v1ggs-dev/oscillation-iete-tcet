@@ -1,7 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { HiLightningBolt, HiUserGroup, HiAcademicCap } from 'react-icons/hi';
+import { FaLinkedinIn, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import TiltCard from './TiltCard';
+import useIsMobile from '../hooks/useIsMobile';
+import { SOCIALS } from '../config/constants';
 import ieteLogo from '../assets/iete_logo.svg';
 import tcetLogo from '../assets/tcet_logo.svg';
 import './About.css';
@@ -84,13 +87,14 @@ const cardVariants = {
 };
 
 export default function About() {
+    const isMobile = useIsMobile();
     const sectionRef = useRef(null);
     const { scrollYProgress } = useScroll({
         target: sectionRef,
         offset: ['start end', 'end start'],
     });
-    const cardY = useTransform(scrollYProgress, [0, 1], [60, -60]);
-    const statsY = useTransform(scrollYProgress, [0, 1], [40, -40]);
+    const cardY = useTransform(scrollYProgress, [0, 1], isMobile ? [0, 0] : [60, -60]);
+    const statsY = useTransform(scrollYProgress, [0, 1], isMobile ? [0, 0] : [40, -40]);
 
     return (
         <section className="section about" id="about" ref={sectionRef}>
@@ -128,6 +132,18 @@ export default function About() {
                                 <img src={tcetLogo} alt="TCET" className="about__org-logo" />
                                 <span className="about__org-name">TCET Mumbai</span>
                             </div>
+                        </div>
+
+                        <div className="about__socials">
+                            <a href={SOCIALS.linkedin} target="_blank" rel="noopener noreferrer" className="about__social-link" aria-label="LinkedIn">
+                                <FaLinkedinIn />
+                            </a>
+                            <a href={SOCIALS.instagram} target="_blank" rel="noopener noreferrer" className="about__social-link" aria-label="Instagram">
+                                <FaInstagram />
+                            </a>
+                            <a href={SOCIALS.whatsapp} target="_blank" rel="noopener noreferrer" className="about__social-link about__social-link--wa" aria-label="WhatsApp">
+                                <FaWhatsapp />
+                            </a>
                         </div>
                     </motion.div>
                 </motion.div>

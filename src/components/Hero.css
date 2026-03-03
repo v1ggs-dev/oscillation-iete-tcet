@@ -267,6 +267,7 @@
 
     .hero__title-row {
         justify-content: center;
+        white-space: normal;
     }
 
     .hero__title-sub {
@@ -280,6 +281,13 @@
     .hero__description {
         margin-left: auto;
         margin-right: auto;
+        font-size: 1rem;
+        min-height: 3.2em;
+    }
+
+    .hero {
+        margin-bottom: 40px;
+        padding-bottom: 60px;
     }
 
     .hero__visual {
@@ -287,6 +295,13 @@
         width: 100%;
         max-width: 500px;
         margin: 0 auto;
+    }
+
+    /* Mobile perf: reduce orb blur & disable pulsing */
+    .hero__bg-orb {
+        filter: blur(40px);
+        opacity: 0.25;
+        animation: none;
     }
 }
 
@@ -316,6 +331,14 @@
 
     .hero__countdown {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero__description {
+        font-size: 0.9rem;
+    }
+
+    .hero {
+        margin-bottom: 24px;
     }
 }
 

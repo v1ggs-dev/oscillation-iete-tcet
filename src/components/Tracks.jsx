@@ -1,10 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence, useMotionTemplate, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { HiX, HiStar, HiUserGroup } from 'react-icons/hi';
 import { FaTrophy, FaCubes, FaBullseye, FaArrowRight, FaAward, FaDownload } from 'react-icons/fa';
 import { ideathonTrack, projectPresentationTrack } from '../data/tracks';
 import { REGISTRATION_URL } from '../config/constants';
-import MagneticButton from './MagneticButton';
 import pitchDeckTemplate from '../assets/Oscillation Pitchdeck Template.pptx';
 import './Tracks.css';
 /* ── Track Card ── */
@@ -101,14 +100,12 @@ function TrackCard({ track, type, onClick, isBlue }) {
             </div>
 
             <div className="tracks__card-actions">
-                <MagneticButton>
-                    <button
-                        className={`btn-primary tracks__card-btn ${isBlue ? 'btn-blue' : ''}`}
-                        onClick={scrollToRegister}
-                    >
-                        Register Now <FaArrowRight />
-                    </button>
-                </MagneticButton>
+                <button
+                    className={`btn-primary tracks__card-btn ${isBlue ? 'btn-blue' : ''}`}
+                    onClick={scrollToRegister}
+                >
+                    Register Now <FaArrowRight />
+                </button>
                 <button className="tracks__card-link">
                     View Details
                 </button>
@@ -120,6 +117,25 @@ function TrackCard({ track, type, onClick, isBlue }) {
 /* ── Track Detail Page — Full-Screen, Clean Layout ── */
 function TrackModal({ track, type, onClose }) {
     const isIdeathon = type === 'ideathon';
+
+    // Close on browser back button / swipe-back gesture
+    useEffect(() => {
+        window.history.pushState({ modal: true }, '');
+        const handlePopState = () => onClose();
+        window.addEventListener('popstate', handlePopState);
+        return () => {
+            window.removeEventListener('popstate', handlePopState);
+        };
+    }, [onClose]);
+
+    // Close on Escape key
+    useEffect(() => {
+        const handleKey = (e) => {
+            if (e.key === 'Escape') onClose();
+        };
+        window.addEventListener('keydown', handleKey);
+        return () => window.removeEventListener('keydown', handleKey);
+    }, [onClose]);
 
     const scrollToRegister = () => {
         onClose();
@@ -246,6 +262,13 @@ function TrackModal({ track, type, onClose }) {
                             </div>
                         </div>
                     )}
+                </div>
+
+                {/* Sticky bottom close bar */}
+                <div className="track-page__bottom-bar">
+                    <button className="track-page__bottom-close" onClick={onClose}>
+                        <HiX /> Close Details
+                    </button>
                 </div>
             </motion.div>
         </motion.div>

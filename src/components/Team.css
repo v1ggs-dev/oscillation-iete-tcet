@@ -252,6 +252,58 @@
     margin: 0;
 }
 
+/* ===== Social Links ===== */
+.team__socials {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-top: 48px;
+}
+
+.team__socials-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.team__socials-icons {
+    display: flex;
+    gap: 16px;
+}
+
+.team__social-link {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.team__social-link:hover {
+    color: var(--purple-400);
+    border-color: var(--purple-500);
+    background: rgba(168, 85, 247, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
+}
+
+.team__social-link--wa:hover {
+    color: #25D366;
+    border-color: #25D366;
+    background: rgba(37, 211, 102, 0.1);
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.2);
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 900px) {
     .team__card {

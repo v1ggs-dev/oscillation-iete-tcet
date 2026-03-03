@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaLinkedinIn } from 'react-icons/fa';
+import { FaLinkedinIn, FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import { SOCIALS } from '../config/constants';
 import './Team.css';
 import ieteLogo from '../assets/iete_logo.svg';
 
@@ -218,6 +219,28 @@ export default function Team() {
                         ))}
                     </motion.div>
                 </AnimatePresence>
+
+                {/* Social Links */}
+                <motion.div
+                    className="team__socials"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                >
+                    <span className="team__socials-label">Follow IETE TCET</span>
+                    <div className="team__socials-icons">
+                        <a href={SOCIALS.linkedin} target="_blank" rel="noopener noreferrer" className="team__social-link" aria-label="LinkedIn">
+                            <FaLinkedinIn />
+                        </a>
+                        <a href={SOCIALS.instagram} target="_blank" rel="noopener noreferrer" className="team__social-link" aria-label="Instagram">
+                            <FaInstagram />
+                        </a>
+                        <a href={SOCIALS.whatsapp} target="_blank" rel="noopener noreferrer" className="team__social-link team__social-link--wa" aria-label="WhatsApp">
+                            <FaWhatsapp />
+                        </a>
+                    </div>
+                </motion.div>
             </div>
         </section>
     );

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useSpring, useMotionValueEvent, useTransform } from 'framer-motion';
 import { HiChevronUp } from 'react-icons/hi';
+import useIsMobile from './hooks/useIsMobile';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -14,6 +15,7 @@ import Sponsors from './components/Sponsors';
 import FAQ from './components/FAQ';
 import Register from './components/Register';
 import Footer from './components/Footer';
+import WhatsAppFAB from './components/WhatsAppFAB';
 
 function PageLoader() {
   const [loaded, setLoaded] = useState(false);
@@ -149,11 +151,12 @@ function PageLoader() {
 }
 
 function AuroraBackground() {
+  const isMobile = useIsMobile();
   const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 3000], [0, -300]);
-  const y2 = useTransform(scrollY, [0, 3000], [0, -150]);
-  const y3 = useTransform(scrollY, [0, 3000], [0, -200]);
-  const y4 = useTransform(scrollY, [0, 3000], [0, -100]);
+  const y1 = useTransform(scrollY, [0, 3000], [0, isMobile ? 0 : -300]);
+  const y2 = useTransform(scrollY, [0, 3000], [0, isMobile ? 0 : -150]);
+  const y3 = useTransform(scrollY, [0, 3000], [0, isMobile ? 0 : -200]);
+  const y4 = useTransform(scrollY, [0, 3000], [0, isMobile ? 0 : -100]);
 
   return (
     <div className="aurora-bg">
@@ -218,6 +221,7 @@ export default function App() {
         <Register />
       </main>
       <Footer />
+      <WhatsAppFAB />
       <BackToTop />
     </>
   );

@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { HiArrowRight, HiCalendar } from 'react-icons/hi';
 import { FaBullseye } from 'react-icons/fa';
-import MagneticButton from './MagneticButton';
 import { REGISTRATION_URL } from '../config/constants';
 import './Register.css';
 
@@ -27,11 +26,9 @@ export default function Register() {
                     </p>
 
                     <div className="register__actions">
-                        <MagneticButton>
-                            <a href={REGISTRATION_URL} target="_blank" rel="noopener noreferrer" className="btn-primary register__btn">
-                                Register Now <HiArrowRight />
-                            </a>
-                        </MagneticButton>
+                        <a href={REGISTRATION_URL} target="_blank" rel="noopener noreferrer" className="btn-primary register__btn">
+                            Register Now <HiArrowRight />
+                        </a>
                     </div>
 
                     <div className="register__info">

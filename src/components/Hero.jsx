@@ -2,21 +2,21 @@ import { useState, useEffect, useCallback } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { HiArrowRight, HiCalendar, HiLocationMarker, HiLightBulb } from 'react-icons/hi';
 import { REGISTRATION_URL } from '../config/constants';
-import MagneticButton from './MagneticButton';
+import useIsMobile from '../hooks/useIsMobile';
 import './Hero.css';
 
 const typewriterPhrases = ['Build the Future', 'Innovate & Create', 'Win Big'];
 
 /* ── Text Split Animation ── */
-function SplitText({ text, className = '', delay = 0 }) {
+function SplitText({ text, className = '', delay = 0, isMobile = false }) {
     return (
         <span className={className} aria-label={text}>
             {text.split('').map((char, i) => (
                 <motion.span
                     key={i}
                     className="split-char"
-                    initial={{ opacity: 0, y: 40, filter: 'blur(8px)' }}
-                    animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                    initial={{ opacity: 0, y: 40, ...(isMobile ? {} : { filter: 'blur(8px)' }) }}
+                    animate={{ opacity: 1, y: 0, ...(isMobile ? {} : { filter: 'blur(0px)' }) }}
                     transition={{
                         duration: 0.5,
                         delay: delay + i * 0.04,
@@ -138,8 +138,9 @@ function CountdownTimer() {
 
 /* ── Hero ── */
 export default function Hero() {
+    const isMobile = useIsMobile();
     const { scrollY } = useScroll();
-    const y2 = useTransform(scrollY, [0, 500], [0, -150]);
+    const y2 = useTransform(scrollY, [0, 500], [0, isMobile ? 0 : -150]);
 
     const scrollTo = (id) => {
         document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -162,9 +163,9 @@ export default function Hero() {
                 >
                     <h1 className="hero__title">
                         <span className="hero__title-row">
-                            <SplitText text="OSCILLATION" className="hero__title-line" delay={0.3} />
+                            <SplitText text="OSCILLATION" className="hero__title-line" delay={0.3} isMobile={isMobile} />
                             <span className="hero__title-sub">
-                                <SplitText text="3.0" className="gradient-text hero__title-version" delay={0.8} />
+                                <SplitText text="3.0" className="gradient-text hero__title-version" delay={0.8} isMobile={isMobile} />
                             </span>
                         </span>
                         <motion.div
@@ -192,16 +193,12 @@ export default function Hero() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 1.4, duration: 0.6 }}
                     >
-                        <MagneticButton>
-                            <button className="btn-primary" onClick={() => window.open(REGISTRATION_URL, '_blank')}>
-                                Register Now <HiArrowRight />
-                            </button>
-                        </MagneticButton>
-                        <MagneticButton>
-                            <button className="btn-secondary" onClick={() => scrollTo('tracks')}>
-                                View Tracks
-                            </button>
-                        </MagneticButton>
+                        <button className="btn-primary" onClick={() => window.open(REGISTRATION_URL, '_blank')}>
+                            Register Now <HiArrowRight />
+                        </button>
+                        <button className="btn-secondary" onClick={() => scrollTo('tracks')}>
+                            View Tracks
+                        </button>
                     </motion.div>
                 </motion.div>
 

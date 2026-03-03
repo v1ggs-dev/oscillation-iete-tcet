@@ -152,6 +152,44 @@
     background: var(--glass-border);
 }
 
+/* Socials */
+.about__socials {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.about__social-link {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-secondary);
+    font-size: 1.15rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.about__social-link:hover {
+    color: var(--purple-400);
+    border-color: var(--purple-500);
+    background: rgba(168, 85, 247, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
+}
+
+.about__social-link--wa:hover {
+    color: #25D366;
+    border-color: #25D366;
+    background: rgba(37, 211, 102, 0.1);
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.2);
+}
+
 @media (max-width: 768px) {
     .about__header {
         margin-bottom: 36px;

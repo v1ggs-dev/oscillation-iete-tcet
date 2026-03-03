@@ -1,4 +1,6 @@
 import { HiPhone, HiMail } from 'react-icons/hi';
+import { FaLinkedinIn, FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import { SOCIALS } from '../config/constants';
 import ieteLogo from '../assets/iete_logo.svg';
 import tcetLogo from '../assets/tcet_logo.svg';
 import './Footer.css';
@@ -35,6 +37,17 @@ export default function Footer() {
                         <p className="footer__tagline">
                             A premier hackathon by <strong className="footer__tagline-highlight">IETE Students' Forum</strong> at <strong className="footer__tagline-highlight">Thakur College of Engineering & Technology</strong>, Mumbai.
                         </p>
+                        <div className="footer__socials">
+                            <a href={SOCIALS.linkedin} target="_blank" rel="noopener noreferrer" className="footer__social-link" aria-label="LinkedIn">
+                                <FaLinkedinIn />
+                            </a>
+                            <a href={SOCIALS.instagram} target="_blank" rel="noopener noreferrer" className="footer__social-link" aria-label="Instagram">
+                                <FaInstagram />
+                            </a>
+                            <a href={SOCIALS.whatsapp} target="_blank" rel="noopener noreferrer" className="footer__social-link footer__social-link--wa" aria-label="WhatsApp">
+                                <FaWhatsapp />
+                            </a>
+                        </div>
                     </div>
 
                     {/* Quick Links */}
