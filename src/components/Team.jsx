@@ -5,26 +5,26 @@ import { SOCIALS } from '../config/constants';
 import './Team.css';
 import ieteLogo from '../assets/iete_logo.svg';
 
-import imgChairperson from '../assets/img_Chairperson.png';
-import imgViceChairperson from '../assets/img_Vice-Chairperson.png';
-import imgSecretary from '../assets/img_Secretary.png';
-import imgTreasurer from '../assets/img_treasurer.png';
-import imgSponsorshipHead from '../assets/img_Sponsorship Head.png';
-import imgEventManager from '../assets/img_Event Manager.png';
-import imgTechnicalLead from '../assets/img_Technical Lead.png';
-import imgOutreachCoordinator from '../assets/img_Outreach Coordinator.png';
+import imgChairperson from '../assets/img_Chairperson.webp';
+import imgViceChairperson from '../assets/img_Vice-Chairperson.webp';
+import imgSecretary from '../assets/img_Secretary.webp';
+import imgTreasurer from '../assets/img_treasurer.webp';
+import imgSponsorshipHead from '../assets/img_Sponsorship Head.webp';
+import imgEventManager from '../assets/img_Event Manager.webp';
+import imgTechnicalLead from '../assets/img_Technical Lead.webp';
+import imgOutreachCoordinator from '../assets/img_Outreach Coordinator.webp';
 
-import imgWcSponsorship1 from '../assets/img_wc_sponsorship1.png';
+import imgWcSponsorship1 from '../assets/img_wc_sponsorship1.webp';
 import imgWcSponsorship2 from '../assets/img_wc_sponsorship2.webp';
 import imgWcSponsorship3 from '../assets/img_wc_sponsorship3.webp';
 import imgWcSponsorship4 from '../assets/img_wc_sponsorship4.webp';
 
-import imgWcCreative1 from '../assets/img_wc_creative1.png';
+import imgWcCreative1 from '../assets/img_wc_creative1.webp';
 import imgWcCreative2 from '../assets/img_wc_creative2.webp';
-import imgWcCreative3 from '../assets/img_wc_creative3.png';
-import imgWcCreative4 from '../assets/img_wc_creative4.png';
-import imgWcCreative5 from '../assets/img_wc_creative5.png';
-import imgWcCreative6 from '../assets/img_wc_creative6.png';
+import imgWcCreative3 from '../assets/img_wc_creative3.webp';
+import imgWcCreative4 from '../assets/img_wc_creative4.webp';
+import imgWcCreative5 from '../assets/img_wc_creative5.webp';
+import imgWcCreative6 from '../assets/img_wc_creative6.webp';
 
 const coreTeam = [
     {
@@ -121,6 +121,7 @@ const TeamCard = ({ member, variants }) => {
                         src={member.image}
                         alt={`Photo of ${member.name}, ${member.role}`}
                         className={`team__photo ${isLoaded ? 'loaded' : ''}`}
+                        loading="lazy"
                         onLoad={() => setIsLoaded(true)}
                         onError={() => setImgError(true)}
                     />
