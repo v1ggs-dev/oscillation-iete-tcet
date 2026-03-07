@@ -13,7 +13,7 @@ export const ideathonTrack = {
         qa: "2 minutes Q&A",
         teamSize: "1–4 members",
         format: "Slides + Verbal Pitch",
-        submission: "PPT upload required (25th March – 1st April)",
+        submission: "PPT upload required (24th – 27th March)",
         language: "English Only",
     },
     themes: [

@@ -32,7 +32,7 @@ export default function Register() {
                     </div>
 
                     <div className="register__info">
-                        <span className="register__info-item"><HiCalendar /> Deadline: 1st April 2026</span>
+                        <span className="register__info-item"><HiCalendar /> Deadline: 28th March 2026</span>
                         <span className="register__info-divider">•</span>
                         <span className="register__info-item"><FaBullseye /> Limited spots available</span>
                     </div>
