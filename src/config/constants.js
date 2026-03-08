@@ -1,4 +1,4 @@
-export const REGISTRATION_URL = 'https://unstop.com/p/oscillation-30-iete-iete-tcet-1654708';
+export const REGISTRATION_URL = 'https://unstop.com/hackathons/oscillation-30-institution-of-electronics-and-telecommunication-engineers-1654708';
 
 export const WHATSAPP_URL = 'https://chat.whatsapp.com/DwjEWfiNhtq4t378VAaj7B?mode=gi_t';
 
