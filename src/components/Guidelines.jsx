@@ -37,7 +37,7 @@ const guidelines = [
         title: 'Track Selection',
         content: [
             'Oscillation will be conducted in two tracks: Ideathon and Project Presentation',
-            'Participants can take part in any one track of their choice',
+            'Yes, you may participate in both tracks. However, the Project and Ideathon topics must align with the specified subdomain, and the same idea cannot be submitted for both tracks.',
             'Each track has its own judging criteria and prizes',
         ],
     },
