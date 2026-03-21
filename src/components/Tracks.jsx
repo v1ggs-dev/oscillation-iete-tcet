@@ -235,6 +235,14 @@ function TrackModal({ track, type, onClose }) {
                             <p className="track-page__template-desc">
                                 Download the official pitch deck template. All teams must follow this format for their submissions.
                             </p>
+                            <div style={{ marginTop: '0.5rem', marginBottom: '1.5rem', padding: '1rem', background: 'rgba(6, 182, 212, 0.05)', border: '1px solid rgba(6, 182, 212, 0.2)', borderRadius: '8px' }}>
+                                <strong style={{ color: 'var(--primary-400)', display: 'block', marginBottom: '0.25rem' }}>Important Submission Guidelines:</strong>
+                                <span style={{ fontSize: '0.9rem', color: '#cbd5e1' }}>
+                                    Presentations must be uploaded strictly in <strong>.pptx</strong> format. Please name your file using the following convention:<br />
+                                    <code style={{ background: 'rgba(0,0,0,0.3)', padding: '0.2rem 0.4rem', borderRadius: '4px', margin: '0.25rem 0', display: 'inline-block' }}>TEAM_&lt;YOUR_TEAM_NAME&gt;_DECK.pptx</code><br />
+                                    <em>(Example: <code>TEAM_CODERS_PITCHDECK.pptx</code>)</em>
+                                </span>
+                            </div>
                             <a
                                 href={pitchDeckTemplate}
                                 download="Oscillation Pitchdeck Template.pptx"
