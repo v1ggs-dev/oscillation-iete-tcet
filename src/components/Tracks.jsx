@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence, useMotionTemplate, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { HiX, HiStar, HiUserGroup } from 'react-icons/hi';
 import { FaTrophy, FaCubes, FaBullseye, FaArrowRight, FaAward, FaDownload } from 'react-icons/fa';
@@ -297,47 +298,52 @@ export default function Tracks() {
     }, [activeModal]);
 
     return (
-        <section className="section tracks" id="tracks">
-            <div className="container">
-                <motion.div
-                    className="tracks__header"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                >
-                    <span className="section-label">Tracks</span>
-                    <h2 className="section-title">
-                        Choose Your <span className="gradient-text">Arena</span>
-                    </h2>
-                    <p className="section-subtitle">
-                        Oscillation features two distinct tracks designed to test your innovation vs implementation skills.
-                    </p>
-                </motion.div>
+        <>
+            <section className="section tracks" id="tracks">
+                <div className="container">
+                    <motion.div
+                        className="tracks__header"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        <span className="section-label">Tracks</span>
+                        <h2 className="section-title">
+                            Choose Your <span className="gradient-text">Arena</span>
+                        </h2>
+                        <p className="section-subtitle">
+                            Oscillation features two distinct tracks designed to test your innovation vs implementation skills.
+                        </p>
+                    </motion.div>
 
-                <div className="tracks__grid">
-                    <TrackCard
-                        track={ideathonTrack}
-                        type="ideathon"
-                        onClick={() => setActiveModal('ideathon')}
-                    />
-                    <TrackCard
-                        track={projectPresentationTrack}
-                        type="hardware"
-                        onClick={() => setActiveModal('hardware')}
-                        isBlue
-                    />
+                    <div className="tracks__grid">
+                        <TrackCard
+                            track={ideathonTrack}
+                            type="ideathon"
+                            onClick={() => setActiveModal('ideathon')}
+                        />
+                        <TrackCard
+                            track={projectPresentationTrack}
+                            type="hardware"
+                            onClick={() => setActiveModal('hardware')}
+                            isBlue
+                        />
+                    </div>
                 </div>
-            </div>
+            </section>
 
-            <AnimatePresence>
-                {activeModal === 'ideathon' && (
-                    <TrackModal track={ideathonTrack} type="ideathon" onClose={() => setActiveModal(null)} />
-                )}
-                {activeModal === 'hardware' && (
-                    <TrackModal track={projectPresentationTrack} type="hardware" onClose={() => setActiveModal(null)} />
-                )}
-            </AnimatePresence>
-        </section>
+            {createPortal(
+                <AnimatePresence>
+                    {activeModal === 'ideathon' && (
+                        <TrackModal track={ideathonTrack} type="ideathon" onClose={() => setActiveModal(null)} />
+                    )}
+                    {activeModal === 'hardware' && (
+                        <TrackModal track={projectPresentationTrack} type="hardware" onClose={() => setActiveModal(null)} />
+                    )}
+                </AnimatePresence>,
+                document.body
+            )}
+        </>
     );
 }
