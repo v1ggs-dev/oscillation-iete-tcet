@@ -6,7 +6,9 @@
     right: 0;
     z-index: 1000;
     padding: 16px 0;
-    transition: all 0.3s var(--ease-smooth);
+    transition: background 0.3s var(--ease-smooth), padding 0.3s var(--ease-smooth);
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .navbar--floating {
@@ -191,6 +193,8 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .mobile-menu__close {

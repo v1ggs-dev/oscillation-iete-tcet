@@ -166,6 +166,8 @@ p {
 .section {
   padding: 40px 0;
   position: relative;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
 }
 
 .text-glow {
@@ -194,14 +196,16 @@ p {
 /* Updated Glass Card */
 .glass-card {
   background: var(--bg-glass);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  transition: all 0.3s var(--ease-smooth);
+  transition: transform 0.3s var(--ease-smooth), box-shadow 0.3s var(--ease-smooth), border-color 0.3s var(--ease-smooth);
   position: relative;
   overflow: hidden;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .glass-card::before {
@@ -216,7 +220,7 @@ p {
 .glass-card:hover {
   border-color: var(--primary-400);
   box-shadow: 0 0 40px -5px var(--primary-glow), inset 0 0 20px rgba(168, 85, 247, 0.1);
-  transform: translateY(-6px) scale(1.02);
+  transform: translateY(-6px) scale(1.02) translateZ(0);
   background: rgba(168, 85, 247, 0.05);
 }
 
@@ -467,6 +471,8 @@ p {
   filter: blur(120px);
   opacity: 0.12;
   animation: aurora-float 20s ease-in-out infinite alternate;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .aurora-orb:nth-child(1) {
@@ -536,6 +542,7 @@ p {
   background: var(--gradient-main);
   transform-origin: 0%;
   z-index: 9998;
+  will-change: transform;
 }
 
 /* ===== Back to Top ===== */

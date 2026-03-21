@@ -30,6 +30,8 @@
     filter: blur(80px);
     opacity: 0.4;
     z-index: 0;
+    will-change: transform, opacity;
+    transform: translateZ(0);
 }
 
 .hero__bg-orb--1 {
@@ -345,6 +347,7 @@
 /* ── Split Text Characters ── */
 .split-char {
     display: inline-block;
+    will-change: transform;
 }
 
 /* ── Flip Digit ── */
@@ -353,6 +356,7 @@
     perspective: 300px;
     overflow: hidden;
     position: relative;
+    will-change: transform;
 }
 
 .flip-digit__inner {

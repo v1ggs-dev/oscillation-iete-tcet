@@ -33,6 +33,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 48px;
+    will-change: transform, opacity;
 }
 
 .timeline__item--left {
