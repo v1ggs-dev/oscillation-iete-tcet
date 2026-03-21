@@ -65,6 +65,10 @@
     font-family: var(--font-display);
     font-size: 1.3rem;
     font-weight: 700;
+    display: flex;
+}
+
+.navbar__logo-text span {
     background: var(--gradient-aurora);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

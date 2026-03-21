@@ -56,7 +56,26 @@ export default function Navbar() {
                         <div className="navbar__logo-icons">
                             <img src={ieteLogo} alt="IETE" className="navbar__org-logo" />
                         </div>
-                        <span className="navbar__logo-text">OSCILLATION</span>
+                        <div className="navbar__logo-text">
+                            {"OSCILLATION".split('').map((char, i) => (
+                                <motion.span
+                                    key={i}
+                                    animate={{
+                                        y: [0, -5, 0],
+                                        opacity: [0.7, 1, 0.7],
+                                    }}
+                                    transition={{
+                                        duration: 2,
+                                        repeat: Infinity,
+                                        ease: "easeInOut",
+                                        delay: i * 0.12
+                                    }}
+                                    style={{ display: 'inline-block' }}
+                                >
+                                    {char}
+                                </motion.span>
+                            ))}
+                        </div>
                     </div>
 
                     <div className="navbar__desktop">
