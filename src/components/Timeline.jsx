@@ -27,7 +27,7 @@ export default function Timeline() {
                     {timelineEvents.map((event, i) => (
                         <motion.div
                             key={event.id}
-                            className={`timeline__item ${i % 2 === 0 ? 'timeline__item--left' : 'timeline__item--right'}`}
+                            className={`timeline__item ${i % 2 === 0 ? 'timeline__item--left' : 'timeline__item--right'} ${event.status === 'completed' ? 'timeline__item--completed' : ''}`}
                             initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true, margin: '-80px' }}
@@ -37,9 +37,8 @@ export default function Timeline() {
                                 <span>{event.icon}</span>
                             </div>
                             <div className="timeline__card glass-card">
-                                <span className="timeline__step">Step {event.id}</span>
                                 <h3 className="timeline__card-title">{event.title}</h3>
-                                <p className="timeline__card-desc">{event.description}</p>
+                                {event.description && <p className="timeline__card-desc">{event.description}</p>}
                             </div>
                         </motion.div>
                     ))}

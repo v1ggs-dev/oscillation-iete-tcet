@@ -249,6 +249,13 @@ p {
   box-shadow: 0 0 25px var(--primary-glow), inset 0 0 20px rgba(255, 255, 255, 0.2);
 }
 
+.btn-disabled, .btn-disabled:hover {
+  opacity: 0.5;
+  cursor: not-allowed !important;
+  pointer-events: none;
+  filter: grayscale(100%);
+}
+
 .btn-secondary {
   display: inline-flex;
   align-items: center;

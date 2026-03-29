@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence, useMotionTemplate, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { HiX, HiStar, HiUserGroup } from 'react-icons/hi';
-import { FaTrophy, FaCubes, FaBullseye, FaArrowRight, FaAward, FaDownload } from 'react-icons/fa';
+import { FaTrophy, FaCubes, FaBullseye, FaArrowRight, FaAward, FaDownload, FaCode } from 'react-icons/fa';
 import { ideathonTrack, projectPresentationTrack } from '../data/tracks';
 import { REGISTRATION_URL } from '../config/constants';
 import pitchDeckTemplate from '../assets/Oscillation Pitchdeck Template.pptx';
@@ -74,6 +74,11 @@ function TrackCard({ track, type, onClick, isBlue }) {
 
             <h3 className="tracks__card-title">{track.title}</h3>
             <p className="tracks__card-subtitle">{track.subtitle}</p>
+            {type === 'ideathon' && (
+                <div style={{ display: 'inline-block', background: 'rgba(168, 85, 247, 0.2)', color: '#d8b4fe', padding: '4px 10px', borderRadius: '12px', fontSize: '0.8rem', fontWeight: 'bold', margin: '4px 0 12px 0', border: '1px solid rgba(168, 85, 247, 0.4)' }}>
+                    Results soon!
+                </div>
+            )}
             <p className="tracks__card-desc">{track.description}</p>
 
             <div className="tracks__card-divider" />
@@ -101,12 +106,14 @@ function TrackCard({ track, type, onClick, isBlue }) {
             </div>
 
             <div className="tracks__card-actions">
-                <button
-                    className={`btn-primary tracks__card-btn ${isBlue ? 'btn-blue' : ''}`}
-                    onClick={scrollToRegister}
-                >
-                    Register Now <FaArrowRight />
-                </button>
+                {type === 'hardware' && (
+                    <button
+                        className="btn-primary tracks__card-btn btn-blue"
+                        onClick={(e) => { e.stopPropagation(); window.open('https://forms.gle/goBt2sC5UQajc25u7', '_blank'); }}
+                    >
+                        Submit Project <FaArrowRight />
+                    </button>
+                )}
                 <button className="tracks__card-link">
                     View Details
                 </button>
@@ -178,12 +185,14 @@ function TrackModal({ track, type, onClose }) {
                     <button className="track-page__back" onClick={onClose} aria-label="Close details">
                         <HiX /> Close
                     </button>
-                    <button
-                        className="btn-primary track-page__register"
-                        onClick={scrollToRegister}
-                    >
-                        Register Now <FaArrowRight />
-                    </button>
+                    {!isIdeathon && (
+                        <button
+                            className="btn-primary track-page__register"
+                            onClick={() => window.open('https://forms.gle/goBt2sC5UQajc25u7', '_blank')}
+                        >
+                            Submit Project <FaArrowRight />
+                        </button>
+                    )}
                 </div>
 
                 {/* Content */}
@@ -193,6 +202,11 @@ function TrackModal({ track, type, onClose }) {
                         <span className="track-page__icon">{track.icon}</span>
                         <h2 className="track-page__title">{track.title}</h2>
                         <p className="track-page__subtitle">{track.subtitle}</p>
+                        {isIdeathon && (
+                            <div style={{ display: 'inline-block', background: 'rgba(168, 85, 247, 0.15)', color: '#d8b4fe', padding: '6px 14px', borderRadius: '16px', fontSize: '0.9rem', fontWeight: 'bold', margin: '8px 0 16px 0', border: '1px solid rgba(168, 85, 247, 0.4)' }}>
+                                Screening Concluded — Results soon!
+                            </div>
+                        )}
                         <p className="track-page__desc">{track.description}</p>
                     </div>
 
@@ -227,31 +241,38 @@ function TrackModal({ track, type, onClose }) {
                         </div>
                     </div>
 
-                    {/* Pitch Deck Template — Ideathon only */}
-                    {isIdeathon && (
+                    {/* Pitch Deck Template removed. Uploads are closed. */}
+
+                    {/* Abstract Submission — Hardware/Project Presentation only */}
+                    {!isIdeathon && (
                         <div className="track-page__section">
                             <h3 className="track-page__section-title">
-                                <FaDownload /> Pitch Deck Template
+                                <FaCode /> Abstract Submission
                             </h3>
                             <p className="track-page__template-desc">
-                                Download the official pitch deck template. All teams must follow this format for their submissions.
+                                For the Project Competition, you need to submit only the <strong>project abstract (2–3 pages)</strong>. Please make sure the content you write is clear and to the point.
                             </p>
                             <div style={{ marginTop: '0.5rem', marginBottom: '1.5rem', padding: '1rem', background: 'rgba(6, 182, 212, 0.05)', border: '1px solid rgba(6, 182, 212, 0.2)', borderRadius: '8px' }}>
-                                <strong style={{ color: 'var(--primary-400)', display: 'block', marginBottom: '0.25rem' }}>Important Submission Guidelines:</strong>
-                                <span style={{ fontSize: '0.9rem', color: '#cbd5e1' }}>
-                                    Presentations must be uploaded strictly in <strong>.pptx</strong> format. Please name your file using the following convention:<br />
-                                    <code style={{ background: 'rgba(0,0,0,0.3)', padding: '0.2rem 0.4rem', borderRadius: '4px', margin: '0.25rem 0', display: 'inline-block' }}>TEAM_&lt;YOUR_TEAM_NAME&gt;_DECK.pptx</code><br />
-                                    <em>(Example: <code>TEAM_CODERS_PITCHDECK.pptx</code>)</em>
+                                <strong style={{ color: 'var(--blue-500)', display: 'block', marginBottom: '0.5rem' }}>Abstract Submission Format (PDF Only):</strong>
+                                <ul style={{ fontSize: '0.9rem', color: '#cbd5e1', paddingLeft: '1.5rem', margin: '0.5rem 0', lineHeight: '1.8' }}>
+                                    <li>Project Title</li>
+                                    <li>Problem Statement</li>
+                                    <li>Solution Idea</li>
+                                    <li>Tech Stack</li>
+                                    <li>Expected Output (attach screenshots of your project output)</li>
+                                </ul>
+                                <span style={{ fontSize: '0.95rem', color: '#f472b6', fontWeight: 'bold', display: 'block', marginTop: '1rem' }}>
+                                    <FaBullseye style={{ display: 'inline', marginRight: '6px' }}/> Do not exceed 3 pages.
                                 </span>
                             </div>
-                            <a
-                                href={pitchDeckTemplate}
-                                download="Oscillation Pitchdeck Template.pptx"
+                            <button
+                                onClick={() => window.open('https://forms.gle/goBt2sC5UQajc25u7', '_blank')}
                                 className="track-page__download-btn"
-                                aria-label="Download pitch deck template"
+                                aria-label="Submit Abstract"
+                                style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', width: 'auto', padding: '0.75rem 1.5rem', border: 'none', background: 'var(--blue-500)', color: 'white', borderRadius: 'var(--radius-sm)', fontWeight: '600', fontSize: '1rem', gap: '8px' }}
                             >
-                                <FaDownload /> Download Template (.pptx)
-                            </a>
+                                <FaCode /> Submit Abstract Here
+                            </button>
                         </div>
                     )}
 

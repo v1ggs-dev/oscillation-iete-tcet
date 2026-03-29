@@ -19,22 +19,22 @@ export default function Register() {
                     <div className="register__glow register__glow--2" />
 
                     <h2 className="register__title">
-                        Ready to <span className="gradient-text">Innovate?</span>
+                        Registration <span className="gradient-text">Closed!</span>
                     </h2>
                     <p className="register__desc">
-                        Join hundreds of innovators at Oscillation 3.0. Pick your track, build your team, and create something extraordinary.
+                        Thank you to the overwhelming number of innovators who signed up for Oscillation 3.0! The screening rounds are officially underway. We look forward to witnessing your incredible pitches and prototypes on April 4th.
                     </p>
 
                     <div className="register__actions">
-                        <a href={REGISTRATION_URL} target="_blank" rel="noopener noreferrer" className="btn-primary register__btn">
-                            Register Now <HiArrowRight />
-                        </a>
+                        <button disabled className="btn-primary register__btn btn-disabled" style={{ cursor: 'default' }}>
+                            Thank You For Registering
+                        </button>
                     </div>
 
                     <div className="register__info">
-                        <span className="register__info-item"><HiCalendar /> Deadline: 28th March 2026</span>
+                        <span className="register__info-item"><HiCalendar /> Grand Finale: 4th April 2026</span>
                         <span className="register__info-divider">•</span>
-                        <span className="register__info-item"><FaBullseye /> Limited spots available</span>
+                        <span className="register__info-item"><FaBullseye /> TCET Mumbai</span>
                     </div>
                 </motion.div>
             </div>

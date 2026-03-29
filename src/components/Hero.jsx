@@ -154,6 +154,14 @@ export default function Hero() {
 
             <div className="hero__grid-overlay" />
 
+            {/* Global Notice Banner */}
+            <div style={{ position: 'absolute', top: '90px', left: 0, width: '100%', zIndex: 50, display: 'flex', justifyContent: 'center', padding: '0 20px' }}>
+                <div style={{ background: 'rgba(6, 182, 212, 0.15)', WebkitBackdropFilter: 'blur(10px)', backdropFilter: 'blur(10px)', border: '1px solid rgba(6, 182, 212, 0.3)', padding: '10px 24px', borderRadius: '100px', display: 'flex', alignItems: 'center', gap: '8px', boxShadow: '0 4px 20px rgba(0,0,0,0.2)', flexWrap: 'wrap', justifyContent: 'center', textAlign: 'center' }}>
+                    <span style={{ fontSize: '0.9rem', color: '#e2e8f0', fontWeight: '500' }}>Project Presentation Submissions are LIVE until <strong style={{ color: '#fff' }}>March 30th, 12 PM</strong>.</span>
+                    <button onClick={() => window.open('https://forms.gle/goBt2sC5UQajc25u7', '_blank')} style={{ background: 'none', border: 'none', color: 'var(--blue-400)', fontWeight: 'bold', cursor: 'pointer', textDecoration: 'underline', fontSize: '0.9rem' }}>Submit Abstract</button>
+                </div>
+            </div>
+
             <div className="hero__content container">
                 <motion.div
                     className="hero__main"
@@ -193,8 +201,8 @@ export default function Hero() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 1.4, duration: 0.6 }}
                     >
-                        <button className="btn-primary" onClick={() => window.open(REGISTRATION_URL, '_blank')}>
-                            Register Now <HiArrowRight />
+                        <button className="btn-primary btn-blue" onClick={() => window.open('https://forms.gle/goBt2sC5UQajc25u7', '_blank')}>
+                            Submit Project Abstract
                         </button>
                         <button className="btn-secondary" onClick={() => scrollTo('tracks')}>
                             View Tracks

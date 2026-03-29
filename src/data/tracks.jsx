@@ -13,7 +13,7 @@ export const ideathonTrack = {
         qa: "2 minutes Q&A",
         teamSize: "1–4 members",
         format: "Slides + Verbal Pitch",
-        submission: "PPT upload required (24th – 27th March)",
+        submission: "Screening Round 1 concluded. Results soon!",
         language: "English Only",
     },
     themes: [
@@ -56,7 +56,7 @@ export const projectPresentationTrack = {
         teamSize: "1–4 members",
         duration: "10 minutes per team",
         demo: "Live working prototype required",
-        submission: "No prior upload required — present directly on event day",
+        submission: "Screening Round 1 submissions live till 30th March, 12:00 PM",
     },
     subtracks: [
         {

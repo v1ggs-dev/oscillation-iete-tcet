@@ -96,8 +96,8 @@ export default function Navbar() {
                             ))}
                         </ul>
                         <div className="navbar__right-actions">
-                            <button className="navbar__register-btn" onClick={() => window.open(REGISTRATION_URL, '_blank')}>
-                                Register
+                            <button className="navbar__register-btn btn-disabled" disabled>
+                                Registration Closed
                             </button>
 
                             <div className="navbar__logo-icons navbar__logo-icons--right">
@@ -151,16 +151,13 @@ export default function Navbar() {
                             </div>
 
                             <motion.button
-                                className="btn-primary mobile-menu__cta"
+                                className="btn-primary mobile-menu__cta btn-disabled"
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.4 }}
-                                onClick={() => {
-                                    setMobileOpen(false);
-                                    window.open(REGISTRATION_URL, '_blank');
-                                }}
+                                disabled
                             >
-                                Register Now
+                                Registration Closed
                             </motion.button>
                         </motion.div>
                     </motion.div>
