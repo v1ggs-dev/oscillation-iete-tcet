@@ -17,16 +17,16 @@ export const timelineEvents = [
     },
     {
         id: 3,
-        title: "Ideathon Results",
-        description: "Results for Screening Round 1 will be released soon!",
-        icon: <HiStar />,
-        status: "upcoming",
+        title: "Project Presentation Submissions",
+        description: "Abstract submissions successfully closed on 30th March.",
+        icon: <HiClock />,
+        status: "completed",
     },
     {
         id: 4,
-        title: "Project Presentation Submissions",
-        description: <><strong style={{color: 'var(--green-500)'}} className="text-glow">LIVE NOW!</strong> Submit your project abstract for Screening Round 1 before 12:00 PM on 30th March.</>,
-        icon: <HiClock />,
+        title: "Round 1 Results Announced",
+        description: <><strong style={{color: 'var(--green-500)'}} className="text-glow">OUT NOW!</strong> The finalized selected teams for both tracks are now available. Check the Tracks section below!</>,
+        icon: <HiStar />,
         status: "active",
     },
     {

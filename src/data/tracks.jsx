@@ -56,7 +56,7 @@ export const projectPresentationTrack = {
         teamSize: "1–4 members",
         duration: "10 minutes per team",
         demo: "Live working prototype required",
-        submission: "Screening Round 1 submissions live till 30th March, 12:00 PM",
+        submission: "Screening Round 1 concluded. Results announced!",
     },
     subtracks: [
         {

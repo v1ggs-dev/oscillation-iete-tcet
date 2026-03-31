@@ -4,6 +4,7 @@ import { motion, AnimatePresence, useMotionTemplate, useMotionValue, useTransfor
 import { HiX, HiStar, HiUserGroup } from 'react-icons/hi';
 import { FaTrophy, FaCubes, FaBullseye, FaArrowRight, FaAward, FaDownload, FaCode } from 'react-icons/fa';
 import { ideathonTrack, projectPresentationTrack } from '../data/tracks';
+import { ideathonFinalists, projectPresentationFinalists } from '../data/results';
 import { REGISTRATION_URL } from '../config/constants';
 import pitchDeckTemplate from '../assets/Oscillation Pitchdeck Template.pptx';
 import './Tracks.css';
@@ -74,11 +75,9 @@ function TrackCard({ track, type, onClick, isBlue }) {
 
             <h3 className="tracks__card-title">{track.title}</h3>
             <p className="tracks__card-subtitle">{track.subtitle}</p>
-            {type === 'ideathon' && (
-                <div style={{ display: 'inline-block', background: 'rgba(168, 85, 247, 0.2)', color: '#d8b4fe', padding: '4px 10px', borderRadius: '12px', fontSize: '0.8rem', fontWeight: 'bold', margin: '4px 0 12px 0', border: '1px solid rgba(168, 85, 247, 0.4)' }}>
-                    Results soon!
-                </div>
-            )}
+            <div style={{ display: 'inline-block', background: 'rgba(34, 197, 94, 0.15)', color: '#86efac', padding: '4px 10px', borderRadius: '12px', fontSize: '0.8rem', fontWeight: 'bold', margin: '4px 0 12px 0', border: '1px solid rgba(34, 197, 94, 0.3)' }}>
+                Round 1 Finalists Announced!
+            </div>
             <p className="tracks__card-desc">{track.description}</p>
 
             <div className="tracks__card-divider" />
@@ -106,16 +105,8 @@ function TrackCard({ track, type, onClick, isBlue }) {
             </div>
 
             <div className="tracks__card-actions">
-                {type === 'hardware' && (
-                    <button
-                        className="btn-primary tracks__card-btn btn-blue"
-                        onClick={(e) => { e.stopPropagation(); window.open('https://forms.gle/goBt2sC5UQajc25u7', '_blank'); }}
-                    >
-                        Submit Project <FaArrowRight />
-                    </button>
-                )}
                 <button className="tracks__card-link">
-                    View Details
+                    View Results
                 </button>
             </div>
         </motion.div>
@@ -185,14 +176,6 @@ function TrackModal({ track, type, onClose }) {
                     <button className="track-page__back" onClick={onClose} aria-label="Close details">
                         <HiX /> Close
                     </button>
-                    {!isIdeathon && (
-                        <button
-                            className="btn-primary track-page__register"
-                            onClick={() => window.open('https://forms.gle/goBt2sC5UQajc25u7', '_blank')}
-                        >
-                            Submit Project <FaArrowRight />
-                        </button>
-                    )}
                 </div>
 
                 {/* Content */}
@@ -202,11 +185,9 @@ function TrackModal({ track, type, onClose }) {
                         <span className="track-page__icon">{track.icon}</span>
                         <h2 className="track-page__title">{track.title}</h2>
                         <p className="track-page__subtitle">{track.subtitle}</p>
-                        {isIdeathon && (
-                            <div style={{ display: 'inline-block', background: 'rgba(168, 85, 247, 0.15)', color: '#d8b4fe', padding: '6px 14px', borderRadius: '16px', fontSize: '0.9rem', fontWeight: 'bold', margin: '8px 0 16px 0', border: '1px solid rgba(168, 85, 247, 0.4)' }}>
-                                Screening Concluded — Results soon!
-                            </div>
-                        )}
+                        <div style={{ display: 'inline-block', background: 'rgba(34, 197, 94, 0.15)', color: '#86efac', padding: '6px 14px', borderRadius: '16px', fontSize: '0.9rem', fontWeight: 'bold', margin: '8px 0 16px 0', border: '1px solid rgba(34, 197, 94, 0.3)' }}>
+                            🎉 Round 1 Finalists Announced!
+                        </div>
                         <p className="track-page__desc">{track.description}</p>
                     </div>
 
@@ -241,40 +222,23 @@ function TrackModal({ track, type, onClose }) {
                         </div>
                     </div>
 
-                    {/* Pitch Deck Template removed. Uploads are closed. */}
-
-                    {/* Abstract Submission — Hardware/Project Presentation only */}
-                    {!isIdeathon && (
-                        <div className="track-page__section">
-                            <h3 className="track-page__section-title">
-                                <FaCode /> Abstract Submission
-                            </h3>
-                            <p className="track-page__template-desc">
-                                For the Project Competition, you need to submit only the <strong>project abstract (2–3 pages)</strong>. Please make sure the content you write is clear and to the point.
-                            </p>
-                            <div style={{ marginTop: '0.5rem', marginBottom: '1.5rem', padding: '1rem', background: 'rgba(6, 182, 212, 0.05)', border: '1px solid rgba(6, 182, 212, 0.2)', borderRadius: '8px' }}>
-                                <strong style={{ color: 'var(--blue-500)', display: 'block', marginBottom: '0.5rem' }}>Abstract Submission Format (PDF Only):</strong>
-                                <ul style={{ fontSize: '0.9rem', color: '#cbd5e1', paddingLeft: '1.5rem', margin: '0.5rem 0', lineHeight: '1.8' }}>
-                                    <li>Project Title</li>
-                                    <li>Problem Statement</li>
-                                    <li>Solution Idea</li>
-                                    <li>Tech Stack</li>
-                                    <li>Expected Output (attach screenshots of your project output)</li>
-                                </ul>
-                                <span style={{ fontSize: '0.95rem', color: '#f472b6', fontWeight: 'bold', display: 'block', marginTop: '1rem' }}>
-                                    <FaBullseye style={{ display: 'inline', marginRight: '6px' }}/> Do not exceed 3 pages.
-                                </span>
-                            </div>
-                            <button
-                                onClick={() => window.open('https://forms.gle/goBt2sC5UQajc25u7', '_blank')}
-                                className="track-page__download-btn"
-                                aria-label="Submit Abstract"
-                                style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', width: 'auto', padding: '0.75rem 1.5rem', border: 'none', background: 'var(--blue-500)', color: 'white', borderRadius: 'var(--radius-sm)', fontWeight: '600', fontSize: '1rem', gap: '8px' }}
-                            >
-                                <FaCode /> Submit Abstract Here
-                            </button>
+                    {/* Selected Teams Section */}
+                    <div className="track-page__section">
+                        <h3 className="track-page__section-title" style={{ color: 'var(--green-400)' }}>
+                            <FaAward /> Round 1 Finalists
+                        </h3>
+                        <p className="track-page__template-desc" style={{ marginBottom: '1.5rem' }}>
+                            Congratulations to the teams advancing to the Grand Finale! Search for your team below.
+                        </p>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(190px, 1fr))', gap: '12px' }}>
+                            {(isIdeathon ? ideathonFinalists : projectPresentationFinalists).map((team, i) => (
+                                <div key={i} style={{ background: 'rgba(255, 255, 255, 0.03)', border: '1px solid rgba(255, 255, 255, 0.08)', padding: '10px 14px', borderRadius: '8px', fontSize: '0.9rem', fontWeight: '500', color: '#f8fafc', display: 'flex', alignItems: 'center', gap: '8px', transition: 'all 0.2s', cursor: 'default' }} onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; e.currentTarget.style.transform = 'translateY(-2px)' }} onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; e.currentTarget.style.transform = 'translateY(0)' }}>
+                                    <HiStar style={{ color: 'var(--yellow-400)', flexShrink: 0, fontSize: '1.1rem' }} />
+                                    <span style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{team}</span>
+                                </div>
+                            ))}
                         </div>
-                    )}
+                    </div>
 
                     {/* Special Awards — Project Presentation only */}
                     {!isIdeathon && track.specialAwards && (
