@@ -5,16 +5,16 @@ import './FAQ.css';
 
 const faqs = [
     {
-        q: 'What are the eligibility criteria for participation?',
-        a: 'Participation is open to all currently enrolled college students, regardless of their branch of study or academic year. A valid institutional ID is required for verification.',
+        q: 'Can we add or remove team members before the Grand Finale?',
+        a: 'No, team rosters were finalized during the Round 1 Screening phase. Only officially registered members may present to the judges on April 4th.',
     },
     {
-        q: 'What are the permissible sizes for a participating team?',
-        a: 'Teams may consist of 1 to 4 members for both the Ideathon and Project Presentation tracks. There is no per-track restriction on team size.',
+        q: 'Can we diverge from our submitted abstract for the Grand Finale?',
+        a: 'Pivoting to a completely new problem statement after the Round 1 selection is strictly prohibited.',
     },
     {
-        q: 'Are participants permitted to compete in multiple tracks?',
-        a: 'Yes, you may participate in both tracks. However, the Project and Ideathon topics must align with the specified subdomain, and the same idea cannot be submitted for both tracks.',
+        q: 'Will accommodation or travel stipends be provided?',
+        a: 'We do not provide travel stipends or overnight accommodation. Participants are expected to manage their own local transit to TCET Mumbai.',
     },
     {
         q: 'What equipment and resources should participants bring to the venue?',
@@ -27,10 +27,6 @@ const faqs = [
     {
         q: 'Are participants allowed to use pre-existing code or libraries?',
         a: 'The utilization of pre-built libraries and open-source frameworks is permitted. However, the core logic and primary implementation of the solution must be original work developed during the event. Plagiarism is strictly prohibited and will result in disqualification.',
-    },
-    {
-        q: 'Is it possible to modify the selected problem statement during the event?',
-        a: 'Yes, teams are permitted to pivot their problem statement and chosen domain during the course of the event, provided they inform the organizing committee.',
     },
     {
         q: 'What are the formal evaluation criteria for the submitted projects?',
