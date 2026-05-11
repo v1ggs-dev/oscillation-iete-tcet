@@ -12,9 +12,9 @@
 }
 
 .navbar--floating {
-    background: rgba(2, 6, 23, 0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: rgba(2, 6, 23, 0.4);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     border-bottom: 1px solid var(--glass-border);
     padding: 10px 0;
 }
@@ -149,9 +149,16 @@
     box-shadow: 0 0 15px var(--primary-glow);
 }
 
-.navbar__register-btn:hover {
+.navbar__register-btn:hover:not(.btn-disabled) {
     transform: translateY(-2px);
     box-shadow: 0 0 25px var(--primary-glow), inset 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.navbar__register-btn.btn-disabled {
+    opacity: 0.4;
+    transform: scale(0.85);
+    box-shadow: none;
+    border-color: transparent;
 }
 
 /* Mobile Toggle */

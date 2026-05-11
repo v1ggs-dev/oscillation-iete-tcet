@@ -9,11 +9,9 @@ import './Navbar.css';
 const navLinks = [
     { id: 'about', label: 'About' },
     { id: 'tracks', label: 'Tracks' },
-    { id: 'timeline', label: 'Timeline' },
     { id: 'prizes', label: 'Prizes' },
-    { id: 'guidelines', label: 'Guidelines' },
+    { id: 'sponsors', label: 'Partners' },
     { id: 'team', label: 'Team' },
-    { id: 'faq', label: 'FAQ' },
 ];
 
 export default function Navbar() {

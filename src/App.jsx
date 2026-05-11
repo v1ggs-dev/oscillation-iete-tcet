@@ -6,16 +6,10 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Tracks from './components/Tracks';
-import Timeline from './components/Timeline';
-import Benefits from './components/Benefits';
 import Prizes from './components/Prizes';
-import Guidelines from './components/Guidelines';
 import Team from './components/Team';
 import Sponsors from './components/Sponsors';
-import FAQ from './components/FAQ';
-import Register from './components/Register';
 import Footer from './components/Footer';
-import WhatsAppFAB from './components/WhatsAppFAB';
 
 function PageLoader() {
   const [loaded, setLoaded] = useState(false);
@@ -211,17 +205,11 @@ export default function App() {
         <Hero />
         <About />
         <Tracks />
-        <Timeline />
-        <Benefits />
         <Prizes />
-        <Guidelines />
         <Team />
         <Sponsors />
-        <FAQ />
-        <Register />
       </main>
       <Footer />
-      <WhatsAppFAB />
       <BackToTop />
     </>
   );

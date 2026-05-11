@@ -4,7 +4,7 @@
 }
 
 .sponsors__content {
-    max-width: 600px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 60px 40px;
 }
@@ -55,7 +55,12 @@
         padding: 40px 20px;
     }
 
+    .sponsors__grid {
+        flex-direction: column;
+        gap: 40px;
+    }
+
     .sponsors__logo {
-        max-width: 150px;
+        max-width: 160px;
     }
 }

@@ -230,23 +230,24 @@ p {
   align-items: center;
   gap: 8px;
   padding: 12px 28px;
-  background: var(--primary-600);
+  background: var(--gradient-main);
   color: white;
   border-radius: var(--radius-full);
   font-weight: 600;
   font-family: var(--font-display);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
   transition: all 0.3s var(--ease-smooth);
   position: relative;
   overflow: hidden;
   box-shadow: 0 0 15px var(--primary-glow);
   text-decoration: none;
+  animation: pulse-glow-btn 3s infinite;
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 25px var(--primary-glow), inset 0 0 20px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 35px var(--primary-glow), inset 0 0 20px rgba(255, 255, 255, 0.4);
 }
 
 .btn-disabled, .btn-disabled:hover {
@@ -261,21 +262,23 @@ p {
   align-items: center;
   gap: 8px;
   padding: 12px 28px;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   color: white;
   border-radius: var(--radius-full);
   font-weight: 600;
   font-family: var(--font-display);
-  border: 1px solid var(--glass-border);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   cursor: pointer;
   transition: all 0.3s;
   text-decoration: none;
 }
 
 .btn-secondary:hover {
-  border-color: var(--secondary-500);
-  background: rgba(6, 182, 212, 0.1);
-  box-shadow: 0 0 20px var(--secondary-glow);
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
 /* Animations */
@@ -300,6 +303,15 @@ p {
 
   50% {
     opacity: 1;
+  }
+}
+
+@keyframes pulse-glow-btn {
+  0%, 100% {
+    box-shadow: 0 0 15px var(--primary-glow);
+  }
+  50% {
+    box-shadow: 0 0 30px var(--primary-glow), 0 0 15px rgba(168, 85, 247, 0.6);
   }
 }
 

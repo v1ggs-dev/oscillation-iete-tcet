@@ -1,5 +1,8 @@
 import { motion } from 'framer-motion';
 import unstopLogo from '../assets/unstop/white/Unstop-Logo-White.svg';
+import osenLogo from '../assets/sponsors/osen.jpg';
+import levelUpLogo from '../assets/sponsors/level-up.png';
+import vercelLogo from '../assets/sponsors/vercel.png';
 import './Sponsors.css';
 
 export default function Sponsors() {
@@ -40,6 +43,15 @@ export default function Sponsors() {
                                 className="sponsors__logo"
                             />
                         </a>
+                        <div className="sponsors__logo-container">
+                            <img src={osenLogo} alt="OSEN" className="sponsors__logo" style={{ borderRadius: '12px' }} />
+                        </div>
+                        <div className="sponsors__logo-container">
+                            <img src={levelUpLogo} alt="Level Up" className="sponsors__logo" />
+                        </div>
+                        <div className="sponsors__logo-container">
+                            <img src={vercelLogo} alt="Vercel" className="sponsors__logo" />
+                        </div>
                     </div>
                 </motion.div>
             </div>
